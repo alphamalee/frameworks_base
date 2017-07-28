@@ -10232,6 +10232,14 @@ public final class Settings {
 
         /**
          * Whether to use edge gestures to navigate.
+         * Force authorize Substratum (or equivalent) frontend calling packages by ThemeInterfacer
+         * The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String FORCE_AUTHORIZE_SUBSTRATUM_PACKAGES = "force_authorize_substratum_packages";
+
+        /**
+         * Boolean value whether to link ringtone and notification volume
          * @hide
          */
         public static final String EDGE_GESTURES_ENABLED = "edge_gestures_enabled";
