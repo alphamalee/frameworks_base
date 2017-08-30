@@ -56,4 +56,10 @@
    <!-- Ambient clock padding workaround -->
   <dimen name="ambient_clock_forced_top_padding">10dp</dimen>
   <dimen name="ambient_clock_forced_bottom_padding">0dp</dimen>
+
+    <!-- Omnistyle -->
+    <dimen name="qs_panel_margin_top">25dp</dimen>
+    <dimen name="qs_panel_margin_top_header">85dp</dimen>
+    <dimen name="qs_panel_footer_height">40dp</dimen>
+    <dimen name="qs_panel_quickqs_height">@*android:dimen/quick_qs_offset_height</dimen>
 </resources>

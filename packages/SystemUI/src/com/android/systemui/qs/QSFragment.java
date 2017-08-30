@@ -150,6 +150,10 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
         return mHeader;
     }
 
+    public QuickStatusBarHeader getQuickStatusBarHeader() {
+        return mHeader;
+    }
+
     @Override
     public void setHasNotifications(boolean hasNotifications) {
     }
