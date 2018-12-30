@@ -5231,6 +5231,17 @@ public final class Settings {
         /** @hide */
         private static final Validator VOLUME_PANEL_ON_LEFT_VALIDATOR = BOOLEAN_VALIDATOR;
 
+	 	/**
+         * Whether to hide the lockscreen clock
+         * @hide
+         */
+        public static final String LOCKSCREEN_CLOCK = "lockscreen_clock";
+
+        /**
+         * Whether to hide the items underneath the lockscreen clock
+         * @hide
+         */
+        public static final String LOCKSCREEN_INFO = "lockscreen_info";
 
 
         /**
