@@ -14,4 +14,9 @@
 
      <!-- Font size for inmensity clock -->
      <dimen name="widget_shishu_inmensity_font_size">40dp</dimen>
+
+     <!-- Font size for inmensity clock -->
+     <dimen name="widget_clock_shishu_nerves_width">@dimen/widget_clock_shishu_size</dimen>
+     <dimen name="widget_clock_shishu_nerves_height">105dp</dimen>
+
 </resources>
