@@ -13,10 +13,11 @@
     <dimen name="widget_shishu_accent_font_size">45dp</dimen>
 
      <!-- Font size for inmensity clock -->
-     <dimen name="widget_shishu_inmensity_font_size">40dp</dimen>
+     <dimen name="widget_shishu_inmensity_font_size">35dp</dimen>
 
-     <!-- Font size for inmensity clock -->
-     <dimen name="widget_clock_shishu_nerves_width">@dimen/widget_clock_shishu_size</dimen>
-     <dimen name="widget_clock_shishu_nerves_height">105dp</dimen>
+    <!-- Font size for nerves clock -->
+    <dimen name="widget_clock_shishu_nerves_width">105dp</dimen>
+    <dimen name="widget_clock_shishu_nerves_height">@dimen/widget_clock_shishu_size</dimen>
+    <dimen name="widget_clock_shishu_nerves_font_size">52dp</dimen>
 
 </resources>

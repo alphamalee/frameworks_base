@@ -41,6 +41,7 @@ import android.util.Slog;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextClock;
@@ -374,7 +375,7 @@ public class KeyguardStatusView extends GridLayout implements
         } else if (mClockSelection == 6) {
             mClockView.setFormat12Hour(Html.fromHtml("<font color='#454545'>hh</font><br><font color=" + getResources().getColor(R.color.sammy_minutes_accent) + ">mm</font>"));
             mClockView.setFormat24Hour(Html.fromHtml("<font color='#454545'>kk</font><br><font color=" + getResources().getColor(R.color.sammy_minutes_accent) + ">mm</font>"));
-        } else if (mClockSelection == 9) {
+        } else if (mClockSelection == 8) {
             mClockView.setFormat12Hour(Html.fromHtml("hh mm"));
             mClockView.setFormat24Hour(Html.fromHtml("kk mm"));
         } else {
@@ -566,12 +567,12 @@ public class KeyguardStatusView extends GridLayout implements
             case 9: // shishu nerves
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
                        View.GONE) : View.VISIBLE);
-                mClockView.setBackground(getResources().getDrawable(R.drawable.clock_shishu_diamondbg));
+                mClockView.setBackground(getResources().getDrawable(R.drawable.clock_shishu_nerves_bg));
                 mClockView.getLayoutParams().width = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_nerves_width);
                 mClockView.getLayoutParams().height = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_nerves_height);
                 mClockView.setLineSpacing(0,1f);
                 mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.widget_sammy_accent_font_size));
+                getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_nerves_font_size));
                 mClockView.setPadding(0,20,0,20);
                 mCustomClockView.setVisibility(View.GONE);
                 break;
