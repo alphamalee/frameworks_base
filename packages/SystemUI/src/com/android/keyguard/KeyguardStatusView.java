@@ -631,7 +631,7 @@ public class KeyguardStatusView extends GridLayout implements
             case 13: // Monochrome gradient, like the qs tile
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
                        View.GONE) : View.VISIBLE);
-                mClockView.setBackground(getResources().getDrawable(R.drawable.clock_bootleg_gradient_qsgradient));
+                mClockView.setBackground(getResources().getDrawable(R.drawable.clock_bootleg_qsgradient));
                 mClockView.getLayoutParams().width = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_size);
                 mClockView.getLayoutParams().height = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_size);
                 mClockView.setLineSpacing(0,1f);
@@ -719,6 +719,11 @@ public class KeyguardStatusView extends GridLayout implements
                 mClockView.setGravity(Gravity.CENTER);
                 break;
             case 12: // Gradient with dark clock
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mClockView.setSingleLine(false);
+                mClockView.setGravity(Gravity.CENTER);
+                break;
+            case 13: // Monochrome gradient, like the qs tile
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 mClockView.setSingleLine(false);
                 mClockView.setGravity(Gravity.CENTER);
