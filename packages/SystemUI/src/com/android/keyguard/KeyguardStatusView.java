@@ -619,8 +619,21 @@ public class KeyguardStatusView extends GridLayout implements
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
                        View.GONE) : View.VISIBLE);
                 mClockView.setBackground(getResources().getDrawable(R.drawable.clock_bootleg_gradient_shadow));
-                mClockView.getLayoutParams().width = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_nerves_width);
-                mClockView.getLayoutParams().height = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_nerves_height);
+                mClockView.getLayoutParams().width = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_size);
+                mClockView.getLayoutParams().height = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_size);
+                mClockView.setLineSpacing(0,1f);
+                mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_nerves_font_size));
+                mClockView.setPadding(0,20,0,20);
+                mCustomClockView.setVisibility(View.GONE);
+                mKeyguardSlice.setPadding(0,15,0,0);
+                break;
+            case 13: // Monochrome gradient, like the qs tile
+                mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
+                       View.GONE) : View.VISIBLE);
+                mClockView.setBackground(getResources().getDrawable(R.drawable.clock_bootleg_gradient_qsgradient));
+                mClockView.getLayoutParams().width = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_size);
+                mClockView.getLayoutParams().height = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_size);
                 mClockView.setLineSpacing(0,1f);
                 mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_nerves_font_size));
