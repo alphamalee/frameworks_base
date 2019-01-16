@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-    android:src="@drawable/clock_bootleg_qsgradient_base"
-    android:tint="@color/sammy_minutes_accent" />
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" android:width="175dp" android:height="175dp" android:tint="@color/sammy_minutes_accent">
+    <gradient
+        android:type="linear"
+        android:startColor="#ffffffff"
+        android:endColor="#5cffffff"
+        android:angle="45"/>
+</shape>
