@@ -561,8 +561,8 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_shishu_accent_font_size));
                 mClockView.setLineSpacing(0,1f);
                 mCustomClockView.setVisibility(View.GONE);
-                mKeyguardSlice.setPadding(0,TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
-        getResources().getDimensionPixelSize(R.dimen.widget_sammy_accent_font_size), 
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
         getResources().getDisplayMetrics()),0,0
                 );
                 break;
@@ -577,8 +577,8 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_shishu_inmensity_font_size));
                 mClockView.setPadding(20,20,20,20);
                 mCustomClockView.setVisibility(View.GONE);
-                mKeyguardSlice.setPadding(0,TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
-        getResources().getDimensionPixelSize(R.dimen.widget_sammy_accent_font_size), 
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
         getResources().getDisplayMetrics()),0,0
                 );
                 break;
@@ -593,8 +593,8 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_nerves_font_size));
                 mClockView.setPadding(0,20,0,20);
                 mCustomClockView.setVisibility(View.GONE);
-                mKeyguardSlice.setPadding(0,TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
-        getResources().getDimensionPixelSize(R.dimen.widget_sammy_accent_font_size), 
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
         getResources().getDisplayMetrics()),0,0
                 );
                 break;
@@ -609,8 +609,8 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_shishu_accent_font_size));
                 mClockView.setPadding(0,20,0,20);
                 mCustomClockView.setVisibility(View.GONE);
-                mKeyguardSlice.setPadding(0,TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
-        getResources().getDimensionPixelSize(R.dimen.widget_sammy_accent_font_size), 
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
         getResources().getDisplayMetrics()),0,0
                 );
                 break;
@@ -625,8 +625,8 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_shishu_accent_font_size));
                 mClockView.setPadding(0,20,0,20);
                 mCustomClockView.setVisibility(View.GONE);
-                mKeyguardSlice.setPadding(0,TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
-        getResources().getDimensionPixelSize(R.dimen.widget_sammy_accent_font_size), 
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
         getResources().getDisplayMetrics()),0,0
                 );
                 break;
@@ -641,8 +641,8 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_nerves_font_size));
                 mClockView.setPadding(0,20,0,20);
                 mCustomClockView.setVisibility(View.GONE);
-                mKeyguardSlice.setPadding(0,TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
-        getResources().getDimensionPixelSize(R.dimen.widget_sammy_accent_font_size), 
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
         getResources().getDisplayMetrics()),0,0
                 );
                 break;
@@ -657,8 +657,8 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_nerves_font_size));
                 mClockView.setPadding(0,20,0,20);
                 mCustomClockView.setVisibility(View.GONE);
-                mKeyguardSlice.setPadding(0,TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
-        getResources().getDimensionPixelSize(R.dimen.widget_sammy_accent_font_size), 
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
         getResources().getDisplayMetrics()),0,0
                 );
                 break;
