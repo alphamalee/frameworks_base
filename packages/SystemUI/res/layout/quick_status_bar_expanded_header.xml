@@ -32,31 +32,16 @@
     android:paddingTop="0dp"
     android:paddingEnd="0dp"
     android:paddingStart="0dp"
-    android:elevation="4dp">
+    android:elevation="4dp" >
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/qs_header_image"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/qs_panel_quickqs_height"
-        android:clipChildren="true"
-        android:clipToPadding="true"
-        android:layout_gravity="center"
-        android:paddingBottom="@dimen/qs_panel_footer_height" >
-
-        <ImageView android:id="@+id/qs_header_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:visibility="gone" />
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:paddingBottom="@dimen/qs_panel_footer_height"/>
 
     <include layout="@layout/quick_status_bar_header_system_icons" />
-
-    </RelativeLayout>
 
     <!-- Status icons within the panel itself (and not in the top-most status bar) -->
     <include layout="@layout/quick_qs_status_icons" />
