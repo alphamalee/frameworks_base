@@ -725,12 +725,12 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private void updateQsPanelLayout() {
         if (mQsPanel != null) {
             final Resources res = mContext.getResources();
-            int panelMarginTop = res.getDimensionPixelSize(mCurrentBackground != null ?
-                    R.dimen.qs_panel_margin_top_header :
-                    R.dimen.qs_panel_margin_top);
+            //int panelMarginTop = res.getDimensionPixelSize(mCurrentBackground != null ?
+            //        R.dimen.qs_panel_margin_top_header :
+            //        R.dimen.qs_panel_margin_top);
             ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) mQsPanel.getLayoutParams();
-            layoutParams.topMargin = panelMarginTop;
-            mQsPanel.setLayoutParams(layoutParams);
+            //layoutParams.topMargin = panelMarginTop;
+            //mQsPanel.setLayoutParams(layoutParams);
         }
     }
 }
