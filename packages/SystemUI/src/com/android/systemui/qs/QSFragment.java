@@ -21,8 +21,16 @@ import android.animation.AnimatorListenerAdapter;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.TransitionDrawable;
+import android.graphics.Color;
+import android.graphics.PorterDuff.Mode;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.util.Log;
@@ -33,6 +41,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.FrameLayout.LayoutParams;
 
 import com.android.systemui.Dependency;
@@ -40,6 +50,7 @@ import com.android.systemui.Interpolators;
 import com.android.systemui.R;
 import com.android.systemui.R.id;
 import com.android.systemui.SysUiServiceProvider;
+import com.android.systemui.omni.StatusBarHeaderMachine;
 import com.android.systemui.plugins.qs.QS;
 import com.android.systemui.qs.customize.QSCustomizer;
 import com.android.systemui.statusbar.CommandQueue;
@@ -47,7 +58,8 @@ import com.android.systemui.statusbar.phone.NotificationsQuickSettingsContainer;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
 import com.android.systemui.statusbar.stack.StackStateAnimator;
 
-public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
+public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks,
+    StatusBarHeaderMachine.IStatusBarHeaderMachineObserver {
     private static final String TAG = "QS";
     private static final boolean DEBUG = false;
     private static final String EXTRA_EXPANDED = "expanded";
@@ -74,6 +86,11 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
     private float mLastQSExpansion = -1;
     private boolean mQsDisabled;
 
+    // omni additions
+    private ImageView mBackgroundImage;
+    private Drawable mCurrentBackground;
+    private final Handler h = new Handler();
+
     private RemoteInputQuickSettingsDisabler mRemoteInputQuickSettingsDisabler =
             Dependency.get(RemoteInputQuickSettingsDisabler.class);
 
@@ -96,6 +113,8 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
         mQSDetail.setQsPanel(mQSPanel, mHeader, (View) mFooter);
         mQSAnimator = new QSAnimator(this,
                 mHeader.findViewById(R.id.quick_qs_panel), mQSPanel);
+
+        mBackgroundImage = (ImageView) view.findViewById(R.id.qs_header_image);
 
         mQSCustomizer = view.findViewById(R.id.qs_customize);
         mQSCustomizer.setQs(this);
@@ -173,6 +192,7 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
                 mQSAnimator.onRtlChanged();
             }
         }
+        updateQsPanelLayout();
     }
 
     @Override
@@ -196,6 +216,8 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
         if (mQSAnimator != null) {
             mQSAnimator.setHost(qsh);
         }
+
+        updateQsPanelLayout();
     }
 
     @Override
@@ -458,4 +480,90 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
             updateQsState();
         }
     };
+
+    @Override
+    public void updateHeader(final Drawable headerImage, final boolean force) {
+        h.post(new Runnable() {
+             public void run() {
+                doUpdateStatusBarCustomHeader(headerImage, force);
+                updateQsPanelLayout();
+            }
+        });
+    }
+
+    @Override
+    public void disableHeader() {
+        h.post(new Runnable() {
+             public void run() {
+                mCurrentBackground = null;
+                mBackgroundImage.setVisibility(View.GONE);
+                updateQsPanelLayout();
+            }
+        });
+    }
+
+    @Override
+    public void refreshHeader() {
+        h.post(new Runnable() {
+             public void run() {
+                doUpdateStatusBarCustomHeader(mCurrentBackground, true);
+            }
+        });
+    }
+
+    private void doUpdateStatusBarCustomHeader(final Drawable next, final boolean force) {
+        if (next != null) {
+            Log.i(TAG, "Updating status bar header background");
+            mBackgroundImage.setVisibility(View.VISIBLE);
+            mCurrentBackground = next;
+            setNotificationPanelHeaderBackground(next, force);
+        } else {
+            mCurrentBackground = null;
+            mBackgroundImage.setVisibility(View.GONE);
+        }
+    }
+
+    private void setNotificationPanelHeaderBackground(final Drawable dw, final boolean force) {
+        if (mBackgroundImage.getDrawable() != null && !force) {
+            Drawable[] arrayDrawable = new Drawable[2];
+            arrayDrawable[0] = mBackgroundImage.getDrawable();
+            arrayDrawable[1] = dw;
+
+            TransitionDrawable transitionDrawable = new TransitionDrawable(arrayDrawable);
+            transitionDrawable.setCrossFadeEnabled(true);
+            mBackgroundImage.setImageDrawable(transitionDrawable);
+            transitionDrawable.startTransition(1000);
+        } else {
+            mBackgroundImage.setImageDrawable(dw);
+        }
+        applyHeaderBackgroundShadow();
+    }
+
+    private void applyHeaderBackgroundShadow() {
+        final int headerShadow = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW, 0,
+                UserHandle.USER_CURRENT);
+
+        if (mCurrentBackground != null) {
+            if (headerShadow != 0) {
+                int shadow = Color.argb(headerShadow, 0, 0, 0);
+                mCurrentBackground.setColorFilter(shadow, Mode.SRC_ATOP);
+            } else {
+                mCurrentBackground.setColorFilter(null);
+            }
+        }
+    }
+
+    private void updateQsPanelLayout() {
+        //if (mQSPanel != null) {
+        //    final Resources res = mContext.getResources();
+        //    int panelMarginTop = res.getDimensionPixelSize(mCurrentBackground != null ?
+        //            R.dimen.qs_panel_margin_top_header :
+        //            R.dimen.qs_panel_margin_top);
+        //    ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) mQSPanel.getLayoutParams();
+        //    layoutParams.topMargin = panelMarginTop;
+        //    mQsPanel.setLayoutParams(layoutParams);
+        //}
+    }
+
 }

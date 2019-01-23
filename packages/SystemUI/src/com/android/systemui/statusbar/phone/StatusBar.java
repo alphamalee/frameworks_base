@@ -1177,8 +1177,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                     mQSPanel = ((QSFragment) qs).getQsPanel();
                     mQSPanel.setBrightnessMirror(mBrightnessMirrorController);
                     mKeyguardStatusBar.setQSPanel(mQSPanel);
-                    mQuickStatusBarHeader = ((QSFragment) qs).getQuickStatusBarHeader();
-                    mStatusBarHeaderMachine.addObserver(mQuickStatusBarHeader);
+                    mStatusBarHeaderMachine.addObserver((QSFragment) qs);
                     mStatusBarHeaderMachine.updateEnablement();
                 }
             });
