@@ -55,11 +55,12 @@
         android:clipChildren="false"
         android:background="@color/quick_settings_status_bar_background_color" />
 
-        <ImageView android:id="@+id/qs_header_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:visibility="gone" />
+    <ImageView android:id="@+id/qs_header_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:visibility="gone" />
+
     <View
         android:id="@+id/quick_settings_header_shadow"
         android:layout_width="match_parent"
