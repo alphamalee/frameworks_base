@@ -41,7 +41,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@*android:dimen/quick_qs_offset_height"
+        android:layout_height="match_parent"
         android:clipChildren="true"
         android:clipToPadding="true"
         android:layout_gravity="center" >
@@ -50,21 +50,21 @@
     <View
         android:id="@+id/quick_settings_status_bar_background"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@*android:dimen/quick_qs_offset_height"
         android:clipToPadding="false"
         android:clipChildren="false"
         android:background="@color/quick_settings_status_bar_background_color" />
 
     <ImageView android:id="@+id/qs_header_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@*android:dimen/quick_qs_offset_height"
         android:scaleType="centerCrop"
         android:visibility="gone" />
 
     <View
         android:id="@+id/quick_settings_header_shadow"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@*android:dimen/quick_qs_offset_height"
         android:clipToPadding="false"
         android:clipChildren="false"
         android:background="#000" />
