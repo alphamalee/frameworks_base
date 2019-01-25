@@ -89,6 +89,7 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks,
     // omni additions
     private ImageView mBackgroundImage;
     private Drawable mCurrentBackground;
+    private View mBackgroundImageShadow;
     private final Handler h = new Handler();
 
     private RemoteInputQuickSettingsDisabler mRemoteInputQuickSettingsDisabler =
@@ -115,6 +116,7 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks,
                 mHeader.findViewById(R.id.quick_qs_panel), mQSPanel);
 
         mBackgroundImage = (ImageView) view.findViewById(R.id.qs_header_image);
+        mBackgroundImageShadow = (View) view.findViewById(R.id.quick_settings_header_shadow);
 
         mQSCustomizer = view.findViewById(R.id.qs_customize);
         mQSCustomizer.setQs(this);
@@ -545,12 +547,8 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks,
                 UserHandle.USER_CURRENT);
 
         if (mCurrentBackground != null) {
-            if (headerShadow != 0) {
-                int shadow = Color.argb(headerShadow, 0, 0, 0);
-                mCurrentBackground.setColorFilter(shadow, Mode.SRC_ATOP);
-            } else {
-                mCurrentBackground.setColorFilter(null);
-            }
+            float shadow = headerShadow / 255.0f;
+            mBackgroundImageShadow.setAlpha(shadow);
         }
     }
 

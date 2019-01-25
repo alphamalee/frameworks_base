@@ -60,6 +60,13 @@
             android:layout_height="@*android:dimen/quick_qs_offset_height"
             android:scaleType="centerCrop"
             android:visibility="gone" />
+    <View
+        android:id="@+id/quick_settings_header_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="@*android:dimen/quick_qs_offset_height"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:background="#000" />
 
     </RelativeLayout>
 
