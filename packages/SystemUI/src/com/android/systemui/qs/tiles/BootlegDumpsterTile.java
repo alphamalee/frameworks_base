@@ -78,7 +78,7 @@ public class BootlegDumpsterTile extends QSTileImpl<BooleanState> {
 
     @Override
     public void handleLongClick() {
-        if (BootlegUtils.isPackageAvailable(mContext, OTA_PKG_NAME)) {
+        if (BootlegUtils.isPackageAvailable(OTA_PKG_NAME,mContext)) {
             // Collapse the panels, so the user can see the toast.
             mHost.collapsePanels();
             startBootlegOTA();

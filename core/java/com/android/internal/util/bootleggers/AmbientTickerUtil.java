@@ -16,10 +16,36 @@
 
 package com.android.internal.util.bootleggers;
 
-public class AmbientTickerUtil;
+public class AmbientTickerUtil {
 
     // Declare some variables to be modified later
-    public boolean mIsTickerEnabled;
-    public boolean mIsInfoFromPNP;
+    public boolean mIsTickerEnabled = true;
+    public boolean mIsInfoFromPNP = false;
     public int DISPLAY_TIME_INTERVAL_SEC = 120000;
-    public String mTickerInfo;
+    public String mTickerInfo = "Synth Wars by Schmutz06";
+
+    public boolean getTickerStatus() {
+        return mIsTickerEnabled;
+    }
+
+    public void setTickerStatus(boolean value) {
+        mIsTickerEnabled = value;
+    }
+
+    public boolean getTickerFromPNP() {
+        return mIsInfoFromPNP;
+    }
+
+    public void setTickerFromPNP(boolean value) {
+        mIsInfoFromPNP = value;
+    }
+
+    public String getTickerInfo() {
+        return mTickerInfo;
+    }
+
+    public void setTickerInfo(String value) {
+        mTickerInfo = value;
+    }
+
+}
