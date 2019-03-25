@@ -6146,6 +6146,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             setFpToDismissNotifications();
             updateKeyguardStatusSettings();
             updateRecentsMode();
+            updateLockscreenFilter();
         }
     }
 
