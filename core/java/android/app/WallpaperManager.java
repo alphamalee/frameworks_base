@@ -1897,6 +1897,7 @@ public class WallpaperManager {
                                 | PackageManager.MATCH_DIRECT_BOOT_UNAWARE);
             } catch (PackageManager.NameNotFoundException e) {
                 cn = null;
+            }
         }
         return cn;
     }
